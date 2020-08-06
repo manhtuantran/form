@@ -227,8 +227,6 @@
     </div>
 </body>
 <script>
-
-
     $(document).ready(function (){
         callAddressAPi();
         callCityAPi();
@@ -248,7 +246,7 @@
                 }
 
                 $.getJSON(url, function (respond) {
-                    if(respond) {
+                    if(respond && respond['status'] == 'ok') {
                         respond['results'].forEach(function (e){
                             $('#address').append(`<li>${e['FullName']}</li>`);
                         });
@@ -284,7 +282,7 @@
                 }
 
                 $.getJSON(url, function (respond) {
-                    if(respond) {
+                    if(respond && respond['status'] == 'ok') {
                         respond['results'].forEach(function (e){
                             $('#city').append(`<li>${e['Name']}</li>`);
                         });
